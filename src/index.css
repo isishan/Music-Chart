@@ -11,3 +11,56 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+select{
+  display: block;
+  margin: 25px;
+  border-left:0px;
+  width: 100px;
+  float: left;
+  width: 200px;
+}
+
+.button{
+  float:left;
+  margin: 25px;
+  height: 45px;
+  width: 200px;
+}
+
+.title-text{
+  margin: 25px;
+  font-size: 30px;
+  color: orange;
+}
+
+.sub{
+  float: none;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.songsContainer{
+  position: relative;
+  padding: 20px;
+  display: inline-block;
+}
+
+.home{
+  margin: 50px 150px;
+  padding-top: 20px;
+  border: 5px black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center; 
+}
+
+/* .App{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+} */
+
+.artistImage{
+  border-radius: 10%;
+}
