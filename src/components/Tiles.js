@@ -11,6 +11,7 @@ class Tiles extends Component{
     componentWillMount(){
         // console.log(this.state);
         let id = this.props.match.params.country;
+        // id = "India";
         console.log("Final" + id);
         axios.get(`http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=${id}&api_key=82dc0bb7312d7f8b691fec5d6747b388&format=json`)
           .then( res => {
@@ -18,14 +19,14 @@ class Tiles extends Component{
              console.log(songs);
             this.setState({
               post: res.data.tracks.track.slice(0,20)
-            },() => console.log(this.state))
+            },() => console.log("CallbackTiles"+this.state))
         });
     }
 
     render(){
         // console.log("hrere"+ this.state);
         const songs  = this.state.post;
-        console.log(songs);
+        console.log("Songs "+songs);
         const CSS= {
             'width': '350px'
         }

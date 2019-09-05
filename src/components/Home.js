@@ -16,7 +16,7 @@ class Home extends Component{
         console.log("HERE "+country);
         this.setState({
             country : country
-        })
+        }, ()=> {console.log("Callback"+ this.state.country);})
     }
 
     componentDidMount(){
@@ -34,9 +34,9 @@ class Home extends Component{
                 <div className="center sub">
                     <select onChange={this.songsOfCountry.bind(this)} id="country" className="blue-grey lighten-5" >
                         <option value = "India"> India</option>
-                        <option value = "Spain"> Spain</option>
-                        <option value = "USA"> USA</option>
-                        <option value = "Australia"> Australia</option>
+                        <option value = "Canada"> Canada</option>
+                        <option value = "France"> France</option>
+                        <option value = "China"> China</option>
                         <option value = "UK"> UK</option>
                         <option value = "Brazil"> Brazil</option>
                     </select>
