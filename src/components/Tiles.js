@@ -3,12 +3,13 @@ import axios from 'axios';
 
 class Tiles extends Component{
     state = {
-        post: [ ]
+        post: [ ],
+        postId: null
     }
 
    
 
-    componentWillMount(){
+    componentDidMount(){
         // console.log(this.state);
         let id = this.props.match.params.country;
         // id = "India";
@@ -17,9 +18,11 @@ class Tiles extends Component{
           .then( res => {
              const songs = res.data.tracks.track.slice(0,20);
              console.log(songs);
+             let newSongs = res.data.tracks.track.slice(0,20);
             this.setState({
-              post: res.data.tracks.track.slice(0,20)
-            },() => console.log("CallbackTiles"+this.state))
+              post: newSongs,
+              postId : id
+            },() => console.log("CallbackTiles"+this.state.post))
         });
     }
 
@@ -33,7 +36,7 @@ class Tiles extends Component{
         const songList = songs.length ? (
             songs.map( song => {
                 return(
-                    <div className="songsContainer" style={CSS}>
+                    <div className="songsContainer" style={CSS} key={this.state.postId}>
                         <div className="card-image waves-effect waves-block waves-light">
                             <img className="artistImage" src={song.image[3]['#text']}></img>
                         </div>
@@ -47,6 +50,8 @@ class Tiles extends Component{
                 )
             })
         ) : (<div className='center'> Loading songs...</div>);
+
+        console.log("Before return"+songList);
 
         return(
               <div className='home'>

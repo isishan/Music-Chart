@@ -16,7 +16,7 @@ class Home extends Component{
         console.log("HERE "+country);
         this.setState({
             country : country
-        }, ()=> {console.log("Callback"+ this.state.country);})
+        }, ()=> {console.log("Country is now "+ this.state.country);})
     }
 
     componentDidMount(){
