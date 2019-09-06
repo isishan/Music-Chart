@@ -19,8 +19,9 @@ import axios from 'axios';
 // }
 
 class App extends Component{
+  
   state = {
-    songs : null,
+    songs : [],
     songsId : null
   }
 
@@ -28,12 +29,16 @@ class App extends Component{
     console.log("ID at chnageCountry() is  " + id);
     axios.get(`http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=${id}&api_key=82dc0bb7312d7f8b691fec5d6747b388&format=json`)
     .then( res => {
-      const songs = res.data.tracks.track.slice(0,20);
-      console.log("Songs at changeCountry() "+songs);
+      console.log(res.data.tracks);
+      const newSongs = res.data.tracks.track.slice(0,20);
+      console.log(newSongs);
+      console.log("Songs at changeCountry() "+ typeof newSongs);
+     
       this.setState({
         songsId : id,
-        songs : songs
-      })
+        songs : newSongs
+      }, ()=>{console.log(this.state.songs);})
+      
     });
   }
 

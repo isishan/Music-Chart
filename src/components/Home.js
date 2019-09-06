@@ -10,6 +10,10 @@ class Home extends Component{
         country: 'India'
     }
     
+    componentDidMount(){
+        
+    }
+    
     // songsOfCountry(){
     //     const country = document.getElementById('country').value;
     //     document.getElementById('cName').innerText = country;
@@ -31,11 +35,14 @@ class Home extends Component{
 
     handleSubmit = (e) =>{
         e.preventDefault();
+        console.log("handleSubmit "+this.state.country);
         this.props.changeCountry(this.state.country);
         
     }
 
     render(){
+        console.log("Calling changecountry()....")
+        this.props.changeCountry(this.state.country);
         // const country = 'India';
         console.log("cOuntry"+ this.state.country);
         return(

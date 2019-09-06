@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 const Tiles = (props) =>{
-    const songs = props;
+    const songs = [props];
     // state = {
     //     post: [ ],
     //     postId: null
@@ -33,14 +33,15 @@ const Tiles = (props) =>{
     // render(){
         // console.log("hrere"+ this.state);
         // const songs  = this.state.post;
-        console.log("Songs "+songs);
+        console.log(songs);
         const CSS= {
             'width': '350px'
         }
         // const songList = songs.length ? (
             const songList = songs.map( song => {
+                console.log("song "+song);
                 return(
-                    <div className="songsContainer" style={CSS} key={this.state.postId}>
+                    <div className="songsContainer" style={CSS}>
                         <div className="card-image waves-effect waves-block waves-light">
                             <img className="artistImage" src={song.image[3]['#text']}></img>
                         </div>
