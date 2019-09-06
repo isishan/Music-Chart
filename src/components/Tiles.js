@@ -1,40 +1,44 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-class Tiles extends Component{
-    state = {
-        post: [ ],
-        postId: null
-    }
+const Tiles = (props) =>{
+    const songs = props;
+    // state = {
+    //     post: [ ],
+    //     postId: null
+    // }
 
    
 
-    componentDidMount(){
-        // console.log(this.state);
-        let id = this.props.match.params.country;
-        // id = "India";
-        console.log("Final" + id);
-        axios.get(`http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=${id}&api_key=82dc0bb7312d7f8b691fec5d6747b388&format=json`)
-          .then( res => {
-             const songs = res.data.tracks.track.slice(0,20);
-             console.log(songs);
-             let newSongs = res.data.tracks.track.slice(0,20);
-            this.setState({
-              post: newSongs,
-              postId : id
-            },() => console.log("CallbackTiles"+this.state.post))
-        });
-    }
+    // componentDidUpdate(){
+    //     // console.log(this.state);
+    //     let id = this.props.match.params.country;
+    //     // id = "India";
+    //     console.log("Final" + id);
+        // axios.get(`http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=${id}&api_key=82dc0bb7312d7f8b691fec5d6747b388&format=json`)
+        //   .then( res => {
+        //      const songs = res.data.tracks.track.slice(0,20);
+        //      console.log(songs);
+        //      let newSongs = res.data.tracks.track.slice(0,20);
+    //          if(id!==this.state.postID)
+    //          {
+    //             this.setState({
+    //             post: newSongs,
+    //             postId : id
+    //             },() => console.log("CallbackTiles  "+this.state.postId))
+    //          }
+    //     });
+    // }
 
-    render(){
+    // render(){
         // console.log("hrere"+ this.state);
-        const songs  = this.state.post;
+        // const songs  = this.state.post;
         console.log("Songs "+songs);
         const CSS= {
             'width': '350px'
         }
-        const songList = songs.length ? (
-            songs.map( song => {
+        // const songList = songs.length ? (
+            const songList = songs.map( song => {
                 return(
                     <div className="songsContainer" style={CSS} key={this.state.postId}>
                         <div className="card-image waves-effect waves-block waves-light">
@@ -49,7 +53,7 @@ class Tiles extends Component{
                     </div>
                 )
             })
-        ) : (<div className='center'> Loading songs...</div>);
+        // ) : (<div className='center'> Loading songs...</div>);
 
         console.log("Before return"+songList);
 
@@ -59,5 +63,5 @@ class Tiles extends Component{
               </div>
         )
     }
-}
+// }
 export default Tiles;

@@ -10,17 +10,29 @@ class Home extends Component{
         country: 'India'
     }
     
-    songsOfCountry(){
-        const country = document.getElementById('country').value;
-        document.getElementById('cName').innerText = country;
-        console.log("HERE "+country);
+    // songsOfCountry(){
+    //     const country = document.getElementById('country').value;
+    //     document.getElementById('cName').innerText = country;
+    //     console.log("HERE "+country);
+    //     this.setState({
+    //         country : country
+    //     }, ()=> {console.log("Country is now "+ this.state.country);})
+    // }
+
+    // componentDidMount(){
+    //     this.songsOfCountry();
+    // }
+
+    handleChange = (e)=>{
         this.setState({
-            country : country
-        }, ()=> {console.log("Country is now "+ this.state.country);})
+            country : document.getElementById('country').value
+        })
     }
 
-    componentDidMount(){
-        this.songsOfCountry();
+    handleSubmit = (e) =>{
+        e.preventDefault();
+        this.props.changeCountry(this.state.country);
+        
     }
 
     render(){
@@ -32,17 +44,18 @@ class Home extends Component{
                 TOP TRACKS IN <span id="cName">India</span>
                 </div>
                 <div className="center sub">
-                    <select onChange={this.songsOfCountry.bind(this)} id="country" className="blue-grey lighten-5" >
-                        <option value = "India"> India</option>
-                        <option value = "Canada"> Canada</option>
-                        <option value = "France"> France</option>
-                        <option value = "China"> China</option>
-                        <option value = "UK"> UK</option>
-                        <option value = "Brazil"> Brazil</option>
-                    </select>
-                    <Link to = {'/' + this.state.country} >
-                    <input type="button" className="orange white-text waves-effect waves-light btn button" value="SEARCH"/><br/>
-                    </Link>
+                    <form onSubmit = {this.handleSubmit}>
+                        <select id="country" className="blue-grey lighten-5" onChange={this.handleChange}>
+                            <option value = "India" > India</option>
+                            <option value = "Canada"> Canada</option>
+                            <option value = "France"> France</option>
+                            <option value = "China" > China</option>
+                            <option value = "UK" > UK</option>
+                            <option value = "Brazil" > Brazil</option>
+                        </select>
+                        <button className="orange white-text waves-effect waves-light btn button">Search</button><br />
+
+                    </form>    
                 </div>
             </div>
             
