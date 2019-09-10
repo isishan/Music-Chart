@@ -4,6 +4,17 @@ import Modal from './Modal';
 
 const Tiles = (props) =>{
     const songs = props.id;
+
+    window.onclick = function(event) {
+        const modal = document.getElementsByClassName('modal')[0];
+        const home = document.getElementsByClassName('home')[0];
+        if (event.target == modal ) {
+          modal.style.display = "none";
+          home.style.display = "block";
+        }
+      }
+
+
     // state = {
     //     post: [ ],
     //     postId: null
@@ -42,7 +53,11 @@ const Tiles = (props) =>{
             'font-weight':'bold'
         }
         const CSS3={
-            'display': 'none'
+            'display': 'none',
+            'z-index' : '1',
+            'position': 'fixed',
+            'left': '0',
+            'top': '0'
         }
         const CSS4={
             'display': 'block'
@@ -50,6 +65,7 @@ const Tiles = (props) =>{
 
         function openModal(){
             document.getElementsByClassName('modal')[0].style='display:block';
+            document.getElementsByClassName('home')[0].style='display:none';
             console.log(document.getElementsByClassName('modal')[0].value);
         }
         // const songList = songs.length ? (
@@ -76,13 +92,15 @@ const Tiles = (props) =>{
 
         return(
             <div>
-                <div className = "modal" style={CSS3}>
+              <div className = "modal" style={CSS3}>
+                    <br /><br />
                   <Modal />
               </div>
               <div className='home'>
                 { songList }
                 
               </div>
+              
               
             </div>
         )
