@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Modal from './Modal';
 
 const Tiles = (props) =>{
-    const songs = [props];
+    const songs = props.id;
     // state = {
     //     post: [ ],
     //     postId: null
@@ -37,21 +38,36 @@ const Tiles = (props) =>{
         const CSS= {
             'width': '350px'
         }
+        const CSS2={
+            'font-weight':'bold'
+        }
+        const CSS3={
+            'display': 'none'
+        }
+        const CSS4={
+            'display': 'block'
+        }
+
+        function openModal(){
+            document.getElementsByClassName('modal')[0].style='display:block';
+            console.log(document.getElementsByClassName('modal')[0].value);
+        }
         // const songList = songs.length ? (
             const songList = songs.map( song => {
                 console.log("song "+song);
                 return(
-                    <div className="songsContainer" style={CSS}>
+                    <div className="songsContainer" style={CSS} onClick={openModal}>
                         <div className="card-image waves-effect waves-block waves-light">
-                            <img className="artistImage" src={song.image[3]['#text']}></img>
+                            <img className="artistImage" src={song.image[2]['#text']}></img>
                         </div>
-                        <div>
+                        <div style={CSS2}>
                             <p>{song.name}</p>
                         </div>
                         <div>
                             <p>{song.artist.name}</p>
                         </div>
                     </div>
+                    
                 )
             })
         // ) : (<div className='center'> Loading songs...</div>);
@@ -59,9 +75,16 @@ const Tiles = (props) =>{
         console.log("Before return"+songList);
 
         return(
+            <div>
+                <div className = "modal" style={CSS3}>
+                  <Modal />
+              </div>
               <div className='home'>
                 { songList }
+                
               </div>
+              
+            </div>
         )
     }
 // }

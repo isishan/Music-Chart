@@ -40,9 +40,13 @@ class Home extends Component{
         
     }
 
+    componentDidMount(){
+        this.props.changeCountry(this.state.country);
+    }
+
     render(){
         console.log("Calling changecountry()....")
-        this.props.changeCountry(this.state.country);
+        
         // const country = 'India';
         console.log("cOuntry"+ this.state.country);
         return(
