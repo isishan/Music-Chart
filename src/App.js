@@ -5,18 +5,6 @@ import Tiles from './components/Tiles';
 import axios from 'axios';
 // import { Route, BrowserRouter, Switch } from 'react-router-dom';
 
-// function App() {
-//   return (
-//     <BrowserRouter>
-//       <div className="App">
-//         <Home />
-//         <Switch>
-//           <Route path = '/:country' component = {Tiles} />
-//         </Switch>
-//         </div>
-//     </BrowserRouter>
-//   );
-// }
 
 class App extends Component{
   

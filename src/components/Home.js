@@ -10,22 +10,7 @@ class Home extends Component{
         country: 'India'
     }
     
-    componentDidMount(){
-        
-    }
     
-    // songsOfCountry(){
-    //     const country = document.getElementById('country').value;
-    //     document.getElementById('cName').innerText = country;
-    //     console.log("HERE "+country);
-    //     this.setState({
-    //         country : country
-    //     }, ()=> {console.log("Country is now "+ this.state.country);})
-    // }
-
-    // componentDidMount(){
-    //     this.songsOfCountry();
-    // }
 
     handleChange = (e)=>{
         this.setState({
