@@ -4,6 +4,7 @@ import Modal from './Modal';
 
 const Tiles = (props) =>{
     const songs = props.id;
+    const showSongInfo = props.showSongInfo;
     
     window.onclick = function(event) {
         const modal = document.getElementsByClassName('modal')[0];
@@ -21,29 +22,18 @@ const Tiles = (props) =>{
         const CSS2={
             'font-weight':'bold'
         }
-        const CSS3={
-            'display': 'none',
-            'z-index' : '1',
-            'position': 'fixed',
-            'left': '0',
-            'top': '0'
-        }
+        
         const CSS4={
             'display': 'block'
         }
         let songId=null;
         let songInfo = null;
         function openModal(key){
-            document.getElementsByClassName('modal')[0].style='display:block';
-            document.getElementsByClassName('home')[0].style='display:none';
-            console.log(document.getElementsByClassName('modal')[0].value);
+            
             songId = key;
             // songId = document.getElementsByClassName('songsContainer')[0].key;
             console.log(songId);
-            axios.get(`http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=82dc0bb7312d7f8b691fec5d6747b388&mbid=${songId}&format=json`)
-            .then( res =>{
-                songInfo = res.data.track;
-            });
+            showSongInfo(songId);
         }
         // const songList = songs.length ? (
             const songList = songs.map( song => {
@@ -69,10 +59,7 @@ const Tiles = (props) =>{
 
         return(
             <div>
-              <div className = "modal" style={CSS3}>
-                    <br /><br />
-                  <Modal songInfo = {songInfo}/>
-              </div>
+              
               <div className='home'>
                 { songList }
                 
