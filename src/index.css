@@ -54,13 +54,29 @@ select{
   text-align: center; 
 }
 
-/* .App{
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-direction: column;
-} */
+.gap{
+  padding: 0px 40px;
+  padding-right: 0px;
+}
+
+.gap2{
+  padding: 0px 40px;
+  padding-left: 0px;
+}
+
+.orangee{
+  color : orange;
+  background-color: white;
+}
 
 .artistImage{
   border-radius: 10%;
+}
+
+.space{
+  padding: 10px 0px;
+}
+
+.bold{
+  font-weight: bold;
 }

@@ -14,7 +14,6 @@ const Tiles = (props) =>{
           home.style.display = "block";
         }
       }
-
         console.log(songs);
         const CSS= {
             'width': '350px'
