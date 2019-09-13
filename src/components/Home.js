@@ -37,7 +37,7 @@ class Home extends Component{
         return(
             <div>
                 <div className="title-text">
-                TOP TRACKS IN <span id="cName">India</span>
+                Top Tracks In <span id="cName">{this.state.country}</span>
                 </div>
                 <div className="center sub">
                     <form onSubmit = {this.handleSubmit}>
@@ -46,8 +46,8 @@ class Home extends Component{
                             <option value = "Canada"> Canada</option>
                             <option value = "France"> France</option>
                             <option value = "China" > China</option>
-                            <option value = "UK" > UK</option>
-                            <option value = "Brazil" > Brazil</option>
+                            <option value = "Greece" > Greece</option>
+                            <option value = "Japan" > Japan</option>
                         </select>
                         <button className="orange white-text waves-effect waves-light btn button">Search</button><br />
 

@@ -5,6 +5,7 @@ import Modal from './Modal';
 const Tiles = (props) =>{
     const songs = props.id;
     const showSongInfo = props.showSongInfo;
+    const showEmpty = props.showEmpty;
     
     window.onclick = function(event) {
         const modal = document.getElementsByClassName('modal')[0];
@@ -19,7 +20,7 @@ const Tiles = (props) =>{
             'width': '350px'
         }
         const CSS2={
-            'font-weight':'bold'
+            'fontWeight':'bold'
         }
         
         const CSS4={
@@ -30,12 +31,17 @@ const Tiles = (props) =>{
         function openModal(key){
             
             songId = key;
+            // if(songId==="")
+            // {
+            //     showEmpty();
+            // }
             // songId = document.getElementsByClassName('songsContainer')[0].key;
-            console.log(songId);
-            showSongInfo(songId);
+            // console.log(songId);
+            // else
+             showSongInfo(songId);
         }
         // const songList = songs.length ? (
-            const songList = songs.map( song => {
+            let songList = songs.length ? (songs.map( song => {
                 console.log("song "+song);
                 return(
                     <div className="songsContainer" style={CSS} onClick={()=>openModal(song.mbid)} key = {song.mbid}>
@@ -52,7 +58,8 @@ const Tiles = (props) =>{
                     
                 )
             })
-        // ) : (<div className='center'> Loading songs...</div>);
+            
+        ) : (<div className='center'> Loading songs...</div>);
 
         console.log("Before return"+songList);
 
