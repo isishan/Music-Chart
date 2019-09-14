@@ -1,13 +1,11 @@
-import React, {Component} from 'react';
-import Tiles from './Tiles';
+import React from 'react';
 
 const Modal=(props)=>{
 
     const songInfo = props.songInfo;
     const findArtist = props.findArtist;
     const closeModal = props.closeModal;
-    console.log(typeof songInfo);
-    console.log(songInfo);
+
 
     let info = null;
     if(songInfo===undefined)
@@ -16,7 +14,7 @@ const Modal=(props)=>{
             <div className="card-image waves-effect waves-block waves-light" >
 
                 <div className="space">
-                <p>Track Not Found</p>
+                <p className="title-text">Track Not Found</p>
                 </div>
                 <div  className="space">
                     <button onClick={closeModal} className="space closeBtn red btn white-text waves-effect waves-light"> Close </button>
@@ -29,7 +27,7 @@ const Modal=(props)=>{
             <div className="card-image waves-effect waves-block waves-light" >
                 <img className="artistImage" src={songInfo.album.image[3]['#text']}></img>
                 <br/>
-                <div className = "space bold" onClick = {()=>findArtist(songInfo.mbid)}>{songInfo.name}</div>
+                <div className = "space bold" onClick = {()=>findArtist(songInfo.artist.mbid)}>{songInfo.name}</div>
                 <div className = "space"><span >Album: </span><span className="orangee">{songInfo.album.title}</span>   <span className = 'gap'>Artist:</span> <span className="orangee">{songInfo.album.artist}</span></div>
                 <div className = "space"><span className="orangee">{songInfo.listeners}</span> <span className="gapr">listeners </span> <span className="orangee gap">{songInfo.playcount}</span><span className="gapr"> playcounts</span></div>
                 <div className = "space">
@@ -52,7 +50,7 @@ const Modal=(props)=>{
             </div>
         ) : (
             <div className = "space">
-                <p>Finding Track</p>
+                <p>Finding Track...</p>
             </div>
         );
     }

@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import Tiles from './Tiles';
-
-
 
 class Home extends Component{
 
@@ -10,8 +6,6 @@ class Home extends Component{
         country: 'India'
     }
     
-    
-
     handleChange = (e)=>{
         this.setState({
             country : document.getElementById('country').value
@@ -30,10 +24,6 @@ class Home extends Component{
     }
 
     render(){
-        console.log("Calling changecountry()....")
-        
-        // const country = 'India';
-        console.log("cOuntry"+ this.state.country);
         return(
             <div>
                 <div className="title-text">
